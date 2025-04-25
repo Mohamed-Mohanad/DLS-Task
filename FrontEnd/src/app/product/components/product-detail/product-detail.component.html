@@ -1,0 +1,70 @@
+<div class="container">
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner diameter="40" aria-label="Loading product details"></mat-spinner>
+  </div>
+
+  <div *ngIf="!isLoading && !product" class="error-container">
+    <h2>Product not found</h2>
+    <p>The product you are looking for does not exist or has been removed.</p>
+    <button mat-raised-button color="primary" routerLink="/">Back to Products</button>
+  </div>
+
+  <div *ngIf="product" class="product-detail fade-in">
+    <button mat-button class="back-button" routerLink="/">
+      Back
+    </button>
+    
+    <div class="product-content">
+      <div class="product-image-container">
+        <img 
+          [src]="product.imageUrl || 'https://via.placeholder.com/500x400'" 
+          alt="{{product.name}}"
+          title="{{product.name}}"
+          class="product-image">
+      </div>
+
+      <div class="product-info">
+        <div class="product-header">
+          <span class="category-badge">{{ product.categoryName }}</span>
+          <h1>{{ product.name }}</h1>
+          <p class="price">{{ product.price | currency }}</p>
+        </div>
+
+        <div class="product-description">
+          <h3>Description</h3>
+          <p>{{ product.description }}</p>
+        </div>
+
+        <div class="stock-info" [class.low-stock]="product.stock < 10">
+          <span>{{ product.stock }} in stock</span>
+        </div>
+
+        <div class="actions" *ngIf="isAuthenticated()">
+          <div class="quantity-selector">
+            <button 
+              mat-button 
+              [disabled]="quantity <= 1" 
+              (click)="updateQuantity(-1)">
+              -
+            </button>
+            <span class="quantity">{{ quantity }}</span>
+            <button 
+              mat-button 
+              [disabled]="quantity >= product.stock" 
+              (click)="updateQuantity(1)">
+              +
+            </button>
+          </div>
+
+          <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="product.stock === 0"
+            (click)="addToCart()">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

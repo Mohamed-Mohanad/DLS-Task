@@ -1,0 +1,215 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Define our color variables with a simpler, more modern palette
+$primary: #4285F4;
+$primary-light: #80b1ff;
+$primary-dark: #0057c1;
+$accent: #34A853;
+$accent-light: #6dda84;
+$accent-dark: #007824;
+$warn: #EA4335;
+$background: #FAFAFA;
+$card-bg: #FFFFFF;
+$text-primary: #212121;
+$text-secondary: #757575;
+$border-color: #E0E0E0;
+$success: #34A853;
+$warning: #FBBC05;
+$info: #4285F4;
+
+// Apply colors directly to Angular Material components 
+// using CSS custom properties (variables)
+:root {
+  --primary: #{$primary};
+  --primary-light: #{$primary-light};
+  --primary-dark: #{$primary-dark};
+  --accent: #{$accent};
+  --accent-light: #{$accent-light};
+  --accent-dark: #{$accent-dark};
+  --warn: #{$warn};
+  --background: #{$background};
+  --card-bg: #{$card-bg};
+  --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
+  --border-color: #{$border-color};
+  
+  // Override Angular Material custom properties
+  --mdc-filled-button-container-color: var(--primary);
+  --mdc-filled-button-label-text-color: white;
+  --mat-mdc-button-persistent-ripple-color: var(--primary-light);
+  --mat-mdc-button-ripple-color: rgba(66, 133, 244, 0.1);
+  
+  // Form fields
+  --mdc-outlined-text-field-outline-color: var(--border-color);
+  --mdc-outlined-text-field-focus-outline-color: var(--primary);
+  --mdc-outlined-text-field-hover-outline-color: var(--primary-light);
+}
+
+// Simpler flat design styles
+.card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background-color: white;
+  padding: 24px;
+}
+
+.button {
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &.primary {
+    background-color: $primary;
+    color: white;
+  }
+  
+  &.accent {
+    background-color: $accent;
+    color: white;
+  }
+}
+
+.form-field {
+  margin-bottom: 16px;
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary;
+    }
+  }
+}
+
+// Global styles
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: $background;
+  color: $text-primary;
+  line-height: 1.5;
+}
+
+// Container styles
+.container {
+  
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Utility classes
+.text-center { text-align: center; }
+.mt-16 { margin-top: 16px; }
+.mb-16 { margin-bottom: 16px; }
+.flex { display: flex; }
+.flex-center { justify-content: center; align-items: center; }
+.flex-between { justify-content: space-between; }
+.flex-column { flex-direction: column; }
+.gap-sm { gap: 8px; }
+.gap-md { gap: 16px; }
+.gap-lg { gap: 24px; }
+
+// Card styles - simpler with subtle shadow
+.mat-mdc-card {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease;
+  border: none !important;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+  }
+}
+
+// Button enhancements - cleaner style
+.mat-mdc-raised-button {
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  letter-spacing: 0.25px;
+  text-transform: none;
+  padding: 0 16px !important;
+  height: 36px !important;
+
+  &.mat-primary {
+    background-color: $primary !important;
+    color: white !important;
+    box-shadow: 0 2px 4px rgba($primary, 0.3) !important;
+
+    &:not([disabled]):hover {
+      background-color: darken($primary, 5%) !important;
+      box-shadow: 0 2px 6px rgba($primary, 0.4) !important;
+    }
+  }
+
+  &.mat-accent {
+    background-color: $accent !important;
+    color: white !important;
+    box-shadow: 0 2px 4px rgba($accent, 0.3) !important;
+
+    &:not([disabled]):hover {
+      background-color: darken($accent, 5%) !important;
+      box-shadow: 0 2px 6px rgba($accent, 0.4) !important;
+    }
+  }
+  
+  &.mat-warn {
+    background-color: $warn !important;
+    color: white !important;
+  }
+}
+
+// Form field enhancements - cleaner look
+.mat-mdc-form-field {
+  width: 100%;
+  
+  &.mat-mdc-form-field-appearance-outline {
+    .mdc-text-field--outlined {
+      border-radius: 4px;
+    }
+  }
+}
+
+// Table styling - simplified
+.mat-mdc-table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  
+  .mat-mdc-header-row {
+    background-color: rgba($primary, 0.03);
+  }
+  
+  .mat-mdc-row {
+    border-bottom: 1px solid $border-color;
+    
+    &:hover {
+      background-color: rgba($primary, 0.02);
+    }
+  }
+}
+
+// Smooth animation
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

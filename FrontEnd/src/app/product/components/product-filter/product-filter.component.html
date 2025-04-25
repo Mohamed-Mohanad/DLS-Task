@@ -1,0 +1,15 @@
+<div class="filter-container" [formGroup]="filterForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="categoryId">
+      <mat-option [value]="null">All Categories</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category.id">
+        {{ category.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button color="primary" (click)="resetFilters()">
+    Clear Filters
+  </button>
+</div> 

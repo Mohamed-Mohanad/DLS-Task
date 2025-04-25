@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="cart-header">
+    <h1>Shopping Cart</h1>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-container">
+    <p>Loading your cart...</p>
+  </div>
+
+  <!-- Debugging information -->
+  <div class="debug-info">
+    <p><strong>Cart Data Raw:</strong> {{ cart | json }}</p>
+  </div>
+
+  <!-- Basic Static Test Display -->
+  <ng-container *ngIf="cart as cartData">
+    <div
+      *ngIf="!isLoading && cartData.items && cartData.items.length > 0"
+      class="cart-test"
+    >
+      <h2>Your Cart Items:</h2>
+      <div *ngFor="let item of cartData.items" class="test-item">
+        <p><strong>Product:</strong> {{ item.productName }}</p>
+        <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+        <p><strong>Price:</strong> {{ item.unitPrice | currency }}</p>
+        <p><strong>Total:</strong> {{ item.totalPrice | currency }}</p>
+        <hr />
+      </div>
+
+      <div class="cart-summary-test">
+        <h3>Order Summary</h3>
+        <p><strong>Items:</strong> {{ cartData.itemCount }}</p>
+        <p><strong>Total:</strong> {{ cartData.totalPrice | currency }}</p>
+        <button mat-raised-button color="primary" (click)="checkout()">
+          Checkout
+        </button>
+        <button mat-button routerLink="/">Continue Shopping</button>
+      </div>
+    </div>
+  </ng-container>
+
+  <div
+    *ngIf="!isLoading && (!cart?.items || cart?.items?.length === 0)"
+    class="empty-cart"
+  >
+    <h2>Your cart is empty</h2>
+    <p>Looks like you haven't added any products to your cart yet.</p>
+    <button mat-raised-button color="primary" routerLink="/">
+      Continue Shopping
+    </button>
+  </div>
+</div>
+
+<style>
+  .debug-info {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 4px;
+  }
+
+  .test-item {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .cart-test {
+    margin: 20px 0;
+  }
+
+  .cart-summary-test {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 4px;
+  }
+
+  button {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+</style>

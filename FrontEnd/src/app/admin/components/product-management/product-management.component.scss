@@ -1,0 +1,148 @@
+@use '../../../core/styles/shared.scss' as shared;
+
+.products-container {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-container {
+  width: 1000px;
+  padding: 32px;
+}
+
+.actions-bar {
+  margin-bottom: 24px;
+  
+  .action-button {
+    height: 44px;
+    padding: 0 24px;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(shared.$primary, 0.2);
+    
+    @include shared.button-hover;
+  }
+}
+
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  @include shared.card-shadow;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 16px;
+}
+
+.product-table {
+  width: 100%;
+  
+  .mat-mdc-header-row {
+    background-color: rgba(shared.$primary, 0.03);
+    height: 56px;
+  
+    .mat-mdc-header-cell {
+      color: shared.$text-primary;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+  
+  .mat-mdc-row {
+    height: 64px;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid shared.$border-color;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:hover {
+      background-color: rgba(shared.$primary, 0.03);
+    }
+  }
+  
+  .mat-mdc-cell {
+    color: shared.$text-secondary;
+    font-size: 14px;
+  }
+  
+  .category-badge {
+    background-color: rgba(shared.$primary, 0.1);
+    color: shared.$primary-dark;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  .price-cell {
+    font-weight: 600;
+    color: shared.$text-primary;
+  }
+  
+  .actions-cell {
+    display: flex;
+    gap: 8px;
+    
+    .action-icon {
+      transform: scale(0.9);
+      transition: all 0.2s ease;
+      
+      mat-icon {
+        font-size: 18px;
+        line-height: 18px;
+        height: 18px;
+        width: 18px;
+      }
+      
+      &:hover {
+        transform: scale(1);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+.empty-row {
+  height: 200px !important;
+  text-align: center;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    color: rgba(shared.$text-secondary, 0.5);
+  }
+  
+  p {
+    color: shared.$text-secondary;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.custom-paginator {
+  border-top: 1px solid shared.$border-color;
+  background-color: rgba(shared.$primary, 0.01);
+}
+
+.mat-column-actions {
+  width: 120px;
+} 

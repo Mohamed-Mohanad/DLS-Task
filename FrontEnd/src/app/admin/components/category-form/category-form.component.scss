@@ -1,0 +1,25 @@
+.category-form-container {
+  padding: 16px;
+}
+
+.form-title {
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  gap: 8px;
+} 

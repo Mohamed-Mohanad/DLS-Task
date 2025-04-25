@@ -1,0 +1,16 @@
+/* Product filter component styles */
+:host {
+  display: block;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+} 

@@ -1,0 +1,233 @@
+// Modern color palette
+$primary: #3f51b5;
+$primary-light: #757de8;
+$primary-dark: #002984;
+$accent: #ff4081;
+$background: #f5f7fa;
+$card-bg: #ffffff;
+$text-primary: #333333;
+$text-secondary: #666666;
+$border-color: #e0e0e0;
+$error: #f44336;
+$success: #4caf50;
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba($primary-light, 0.1) 0%, rgba($primary-dark, 0.2) 100%), $background;
+}
+
+.register-card {
+  background: $card-bg;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-in-out;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 32px;
+
+  .logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    color: $text-secondary;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.register-form {
+  .name-fields {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  .half-width {
+    flex: 1;
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  ::ng-deep {
+    .mat-mdc-form-field {
+      .mdc-text-field--outlined {
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      
+      &.mat-focused {
+        .mdc-text-field--outlined {
+          border-color: $primary;
+        }
+      }
+    }
+
+    .mat-mdc-form-field-hint,
+    .mat-mdc-form-field-error {
+      font-size: 12px;
+    }
+
+    // Make icons more prominent
+    .mat-icon {
+      color: $primary;
+    }
+  }
+
+  .form-options {
+    margin: 24px 0;
+  }
+
+  .register-button {
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba($primary, 0.3);
+
+    &:not([disabled]):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba($primary, 0.4);
+    }
+
+    mat-spinner {
+      margin: 0;
+    }
+  }
+}
+
+.social-register {
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+
+  p {
+    color: $text-secondary;
+    margin-bottom: 16px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: $border-color;
+    }
+
+    &::before {
+      margin-right: 16px;
+    }
+
+    &::after {
+      margin-left: 16px;
+    }
+  }
+
+  .social-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+
+    .social-button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      background-color: $card-bg;
+      border: 1px solid $border-color;
+
+      &:hover {
+        background-color: rgba($primary, 0.05);
+        border-color: rgba($primary, 0.3);
+      }
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.login-link {
+  text-align: center;
+  font-size: 14px;
+  color: $text-secondary;
+
+  a {
+    color: $primary;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      color: $primary-dark;
+      text-decoration: underline;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
