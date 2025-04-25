@@ -112,15 +112,6 @@ The Angular frontend is organized by feature modules:
    ```
 3. The application will be available at `http://localhost:4200`
 
-## Demo Credentials
-
-- Admin User:
-  - Email: admin@example.com
-  - Password: Admin123!
-- Regular User:
-  - Email: user@example.com
-  - Password: User123!
-
 ## Features Implemented
 
 - ✅ Clean architecture with separation of concerns
