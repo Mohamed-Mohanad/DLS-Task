@@ -5,10 +5,12 @@ using DLS.Application.Features.Categories.Commands.UpdateCategory;
 using DLS.Application.Features.Categories.Queries.GetCategoriesList;
 using DLS.Application.Features.Categories.Queries.GetCategory;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DLS.Presentation.Controllers
 {
+    [Authorize]
     [Route("api/v{version:apiVersion}/categories")]
     public sealed class CategoriesController : ApiController
     {

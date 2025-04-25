@@ -5,10 +5,12 @@ using DLS.Application.Features.Products.Commands.UpdateProduct;
 using DLS.Application.Features.Products.Queries.GetProduct;
 using DLS.Application.Features.Products.Queries.GetProductsList;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DLS.Presentation.Controllers
 {
+    [Authorize]
     [Route("api/v{version:apiVersion}/products")]
     public sealed class ProductsController : ApiController
     {

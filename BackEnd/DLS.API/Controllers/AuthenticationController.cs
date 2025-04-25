@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DLS.Presentation.Controllers
 {
+    
     [Route("api/v{version:apiVersion}/authentication")]
     public sealed class AuthenticationController : ApiController
     {
